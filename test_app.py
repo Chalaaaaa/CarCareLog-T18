@@ -135,7 +135,7 @@ class AppTests(unittest.TestCase):
 
     def test_csv_unicode_and_formula_escaping(self):
         car = self.car()
-        self.record(car, provider="=1+1", notes="保养记录, line\nnext")
+        self.record(car, provider="=1+1", notes="保养记录", line\nnext")
         status, csv = self.call(f"/api/export?vehicle_id={car}")
         self.assertEqual(status, 200)
         self.assertIn("'=1+1", csv.decode("utf-8-sig"))
